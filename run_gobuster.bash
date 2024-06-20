@@ -1,7 +1,21 @@
 #!/bin/bash
 
-# Prompt the user for the domain list file with tab completion
-read -e -rp "Enter the path to your domain list file: " DOMAIN_LIST
+# Function to prompt user if arguments are not provided
+function prompt_for_file() {
+    local prompt_message="$1"
+    local default_value="$2"
+    local input_var
+
+    read -rp "$prompt_message" input_var
+    echo "${input_var:-$default_value}"
+}
+
+# Prompt for sudo password
+read -rsp "Enter your sudo password: " SUDO_PASSWORD
+echo
+
+# Check if domain list is provided as argument or prompt
+DOMAIN_LIST="${1:-$(prompt_for_file 'Enter the path to your domain list file: ')}"
 
 # Check if the domain list file exists
 if [[ ! -f "$DOMAIN_LIST" ]]; then
@@ -9,8 +23,8 @@ if [[ ! -f "$DOMAIN_LIST" ]]; then
     exit 1
 fi
 
-# Prompt the user for the wordlist path with tab completion
-read -e -rp "Enter the path to your wordlist file: " WORDLIST
+# Check if wordlist is provided as argument or prompt
+WORDLIST="${2:-$(prompt_for_file 'Enter the path to your wordlist file: ')}"
 
 # Check if the wordlist file exists
 if [[ ! -f "$WORDLIST" ]]; then
@@ -33,8 +47,8 @@ while IFS= read -r domain; do
 
     echo "Running gobuster for: $domain"
 
-    # Run gobuster
-    sudo gobuster dir -w "$WORDLIST" -u "$domain" -o "$OUTPUT_FILE"
+    # Run gobuster with sudo, passing the password
+    echo "$SUDO_PASSWORD" | sudo -S gobuster dir -w "$WORDLIST" -u "$domain" -o "$OUTPUT_FILE"
 
     echo "Gobuster results saved to: $OUTPUT_FILE"
     echo
