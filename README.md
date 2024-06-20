@@ -11,15 +11,11 @@ Instructions
 
     Save the Script: Save the script to a file named run_gobuster.sh in your working directory:
 
-    bash
-
 nano run_gobuster.sh
 
 Then paste the script content into the file and save it.
 
 Make the Script Executable:
-
-bash
 
 chmod +x run_gobuster.sh
 
@@ -28,27 +24,19 @@ You can now run the script with or without arguments:
 
     With Command-Line Arguments:
 
-    bash
-
 ./run_gobuster.sh /path/to/live_subdomains.txt /path/to/wordlist.txt
 
 Without Arguments:
 
-bash
-
         ./run_gobuster.sh
 
 Sample Command
-
-bash
 
 ./run_gobuster.sh ~/bugbounty/live_subdomains.txt /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt
 
 Example Directory Structure
 
 After running the script, your directory might look like this:
-
-bash
 
 run_gobuster/
 ├── live_subdomains.txt        # Example domain list
@@ -90,20 +78,15 @@ This Bash script automates running `gobuster` against a list of domains using a 
 1. **Clone the Repository:**
    Clone this repository to your local machine.
 
-   ```bash
    git clone https://github.com/d3ndr1t30x/run_gobuster.git
    cd run_gobuster
 
     Make the Script Executable:
 
-    bash
-
 chmod +x run_gobuster.sh
 
 Install Gobuster:
 Ensure gobuster is installed on your system. If not, install it using:
-
-bash
 
     sudo apt-get update
     sudo apt-get install gobuster
@@ -116,22 +99,16 @@ With Command-Line Arguments
 
 Provide the domain list and wordlist directly when running the script:
 
-bash
-
 ./run_gobuster.sh /path/to/live_subdomains.txt /path/to/wordlist.txt
 
 Interactively
 
 If you don’t provide arguments, the script will prompt you for the necessary inputs:
 
-bash
-
 ./run_gobuster.sh
 
 You will be asked to enter the paths for the domain list and the wordlist.
 Example
-
-bash
 
 ./run_gobuster.sh ~/bugbounty/live_subdomains.txt /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt
 
@@ -139,8 +116,6 @@ Output
 
 Results are saved in the gobuster_results directory. Each domain’s output is stored in a file named <domain>.gobuster.out, where <domain> is the sanitized domain name.
 Directory Structure
-
-csharp
 
 run_gobuster/
 ├── live_subdomains.txt        # Example domain list
@@ -155,15 +130,11 @@ Change Output Directory
 
 To change the output directory, modify the OUTPUT_DIR variable in the script:
 
-bash
-
 OUTPUT_DIR="custom_output_directory"
 
 Adjust Wordlist
 
 To use a different wordlist, specify the path during the prompt or as an argument when running the script:
-
-bash
 
 ./run_gobuster.sh /path/to/domains.txt /path/to/your_custom_wordlist.txt
 
