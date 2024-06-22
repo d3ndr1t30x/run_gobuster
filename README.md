@@ -82,3 +82,5 @@ Troubleshooting
     Domain List File Not Found: If the domain list file is not found, ensure the file path is correct and the file exists.
     Wordlist File Not Found: If the wordlist file is not found, verify the file path and that the file is accessible.
     Gobuster Not Installed: Ensure gobuster is installed on your system. Refer to the installation instructions if needed.
+
+Please hesitate to contact me with any issues with the script :)
