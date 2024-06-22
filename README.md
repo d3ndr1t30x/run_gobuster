@@ -22,11 +22,11 @@ This Bash script automates running `gobuster` against a list of domains using a 
 ## Installation
 
 1. **Clone the Repository:**
-   'git clone https://github.com/d3ndr1t30x/run_gobuster.git
-   cd run_gobuster' 
+   ```git clone https://github.com/d3ndr1t30x/run_gobuster.git
+   cd run_gobuster``` 
 
-    Make the Script Executable:
-   'chmod +x run_gobuster.sh'
+2. Make the Script Executable:
+   ```chmod +x run_gobuster.sh```
 
 Install Gobuster:
 Ensure gobuster is installed on your system. If not, install it using:
@@ -45,52 +45,37 @@ With Command-Line Arguments:
 
 Provide the domain list and wordlist directly when running the script:
 
-bash
-
-./run_gobuster.sh /path/to/live_subdomains.txt /path/to/wordlist.txt
+```./run_gobuster.sh /path/to/live_subdomains.txt /path/to/wordlist.txt```
 
 Interactively:
 
 If you don’t provide arguments, the script will prompt you for the necessary inputs:
 
-./run_gobuster.sh
+```./run_gobuster.sh```
 
 You will be asked to enter the paths for the domain list and the wordlist.
 Example
 
-./run_gobuster.sh ~/bugbounty/live_subdomains.txt /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt
+```./run_gobuster.sh ~/bugbounty/live_subdomains.txt /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt```
 
 Output
 
 Results are saved in the gobuster_results directory. Each domain’s output is stored in a file named <domain>.gobuster.out, where <domain> is the sanitized domain name.
 Directory Structure
 
-csharp
-
-run_gobuster/
-├── live_subdomains.txt        # Example domain list
-├── run_gobuster.sh            # The main script
-├── README.md                  # This README file
-└── gobuster_results/          # Directory for gobuster results
-    ├── example_com.gobuster.out
-    └── test_com.gobuster.out
 
 Customization
 Change Output Directory
 
 To change the output directory, modify the OUTPUT_DIR variable in the script:
 
-bash
-
-OUTPUT_DIR="custom_output_directory"
+```OUTPUT_DIR="custom_output_directory```
 
 Adjust Wordlist
 
 To use a different wordlist, specify the path during the prompt or as an argument when running the script:
 
-bash
-
-./run_gobuster.sh /path/to/domains.txt /path/to/your_custom_wordlist.txt
+```./run_gobuster.sh /path/to/domains.txt /path/to/your_custom_wordlist.txt```
 
 Troubleshooting
 
