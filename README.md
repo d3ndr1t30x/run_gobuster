@@ -22,8 +22,8 @@ This Bash script automates running `gobuster` against a list of domains using a 
 ## Installation
 
 1. **Clone the Repository:**
-   ```git clone https://github.com/d3ndr1t30x/run_gobuster.git
-   cd run_gobuster``` 
+   ```git clone https://github.com/d3ndr1t30x/run_gobuster.git```
+   ```cd run_gobuster``` 
 
 2. Make the Script Executable:
    ```chmod +x run_gobuster.sh```
